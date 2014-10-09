@@ -177,7 +177,7 @@ module ActiveModel
         end
 
         def associations
-          serializer._associations
+          serializer._associations.values
         end
       end
 
