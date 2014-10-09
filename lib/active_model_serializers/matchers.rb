@@ -131,7 +131,7 @@ module ActiveModel
         attr_accessor :name, :actual, :key
 
         def initialize(name)
-          @name = name
+          @name = name.to_s
         end
 
         def matches?(actual)
