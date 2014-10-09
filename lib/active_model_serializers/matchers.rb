@@ -18,11 +18,11 @@ module ActiveModel
           "have attribute #{name}"
         end
 
-        def failure_message_for_should
+        def failure_message
           %Q{expected "#{actual._root}" to be "#{name}", but it wasn't}
         end
 
-        def failure_message_for_should_not
+        def failure_message_when_negated
           %Q{expected "#{actual._root}" to be "#{name}", but it was}
         end
 
@@ -57,12 +57,12 @@ module ActiveModel
           "embed #{name}"
         end
 
-        def failure_message_for_should
           %Q{expected "#{actual._embed}" to be "#{name}", but it wasn't}
+        def failure_message
         end
 
-        def failure_message_for_should_not
           %Q{expected "#{actual._embed}" to be "#{name}", but it was}
+        def failure_message_when_negated
         end
 
         private
@@ -96,11 +96,11 @@ module ActiveModel
           "have attribute #{name}"
         end
 
-        def failure_message_for_should
+        def failure_message
           %Q{expected #{actual.inspect} to include "#{name}", but it did not}
         end
 
-        def failure_message_for_should_not
+        def failure_message_when_negated
           %Q{expected #{actual.inspect} to not include: "#{name}", but it did}
         end
 
@@ -154,11 +154,11 @@ module ActiveModel
           "have attribute #{name}"
         end
 
-        def failure_message_for_should
+        def failure_message
           %Q{expected #{actual.inspect} to include a "#{name}" association, but it did not}
         end
 
-        def failure_message_for_should_not
+        def failure_message_when_negated
           %Q{expected #{actual.inspect} to not include a "#{name}" association, but it did}
         end
 
