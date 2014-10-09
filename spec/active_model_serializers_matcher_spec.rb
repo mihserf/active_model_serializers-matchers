@@ -21,6 +21,15 @@ describe ActiveModel::Serializers::Matchers do
     expect(serializer).to embed(:ids)
     expect(serializer).to_not embed(:objects)
   end
+
+  it "should match the global embed setting" do
+    ActiveModel::Serializer.setup do |config|
+      config.embed :ids
+    end
+
+    serializer = Class.new ActiveModel::Serializer
+    expect(serializer).to embed(:ids)
+    expect(serializer).to_not embed(:objects)
   end
 
   describe "The root key" do
