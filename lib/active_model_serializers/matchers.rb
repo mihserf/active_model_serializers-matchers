@@ -94,7 +94,7 @@ module ActiveModel
         def matches?(actual)
           @actual = actual
 
-          attributes.has_key?(name)
+          attributes.include?(name)
         end
 
         def description
