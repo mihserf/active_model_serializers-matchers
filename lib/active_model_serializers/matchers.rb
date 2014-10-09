@@ -50,7 +50,8 @@ module ActiveModel
         def matches?(actual)
           @actual = actual
 
-          serializer._embed == expected
+          serializer.has_many :test_embeds
+          association.respond_to?("embed_#{expected}") && association.public_send("embed_#{expected}")
         end
 
         def description
@@ -72,6 +73,10 @@ module ActiveModel
           else
             actual.class
           end
+        end
+
+        def association
+          serializer._associations.values.first
         end
       end
 
