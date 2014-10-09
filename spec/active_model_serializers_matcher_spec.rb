@@ -9,8 +9,8 @@ describe ActiveModel::Serializers::Matchers do
       attributes :foo
     end
 
-    serializer.should_not have_attribute :bar
-    serializer.should have_attribute :foo
+    expect(serializer).to_not have_attribute :bar
+    expect(serializer).to have_attribute :foo
   end
 
   it "should match the embed setting" do
@@ -18,8 +18,9 @@ describe ActiveModel::Serializers::Matchers do
       embed :ids
     end
 
-    serializer.should embed(:ids)
-    serializer.should_not embed(:objects)
+    expect(serializer).to embed(:ids)
+    expect(serializer).to_not embed(:objects)
+  end
   end
 
   describe "The root key" do
@@ -28,7 +29,7 @@ describe ActiveModel::Serializers::Matchers do
 
       end
 
-      serializer.should include_root
+      expect(serializer).to include_root
     end
 
     it "should be able to match a specific key" do
@@ -36,8 +37,8 @@ describe ActiveModel::Serializers::Matchers do
         root :foo
       end
 
-      serializer.should include_root(:foo)
-      serializer.should_not include_root(:bar)
+      expect(serializer).to include_root(:foo)
+      expect(serializer).to_not include_root(:bar)
     end
   end
 
@@ -47,8 +48,8 @@ describe ActiveModel::Serializers::Matchers do
         has_many :foos
       end
 
-      serializer.should have_many(:foos)
-      serializer.should_not have_many(:bars)
+      expect(serializer).to have_many(:foos)
+      expect(serializer).to_not have_many(:bars)
     end
 
     it "should work with has_one" do
@@ -56,8 +57,8 @@ describe ActiveModel::Serializers::Matchers do
         has_one :foo
       end
 
-      serializer.should have_one(:foo)
-      serializer.should_not have_one(:bar)
+      expect(serializer).to have_one(:foo)
+      expect(serializer).to_not have_one(:bar)
     end
 
     it "should work with has_one key options" do
@@ -65,9 +66,9 @@ describe ActiveModel::Serializers::Matchers do
         has_one :foo, :key => :bar
       end
 
-      serializer.should have_one(:foo).as(:bar)
-      serializer.should have_one(:foo)
-      serializer.should_not have_one(:foo).as(:qux)
+      expect(serializer).to have_one(:foo).as(:bar)
+      expect(serializer).to have_one(:foo)
+      expect(serializer).to_not have_one(:foo).as(:qux)
     end
 
     it "should work with has_many key options" do
@@ -75,9 +76,9 @@ describe ActiveModel::Serializers::Matchers do
         has_one :foos, :key => :bars
       end
 
-      serializer.should have_one(:foos).as(:bars)
-      serializer.should have_one(:foos)
-      serializer.should_not have_one(:foos).as(:qux)
+      expect(serializer).to have_one(:foos).as(:bars)
+      expect(serializer).to have_one(:foos)
+      expect(serializer).to_not have_one(:foos).as(:qux)
     end
   end
 end
