@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'active_support/core_ext/string/inflections'
 
 describe ActiveModel::Serializers::Matchers do
   include ActiveModel::Serializers::Matchers
